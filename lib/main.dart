@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:halal_farm/provider/bottomNavProvider.dart';
 import 'package:halal_farm/provider/text_provider.dart';
 import 'package:halal_farm/router/router.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => TextProvider())],
+    providers: [ChangeNotifierProvider(create: (_) => TextProvider()),
+    ChangeNotifierProvider(create: (_) => bottomNavProvider()),
+    
+    ],
     child: MyApp(),
   ));
 }

@@ -40,7 +40,7 @@ class LanguageChoosing extends StatelessWidget {
             child: UiConstants.constButtonNext("Keyingisi", context),
             onTap: () {
               Navigator.pushNamedAndRemoveUntil(
-                  context, "/asosiyPage", (route) => false);
+                  context, "/bottomNav", (route) => false);
             },
           )
         ],
