@@ -17,6 +17,10 @@ class RouteBloc {
       case "/asosiyPage":
         return MaterialPageRoute(builder: (context) => MyHomePage());
 
+
+
+      
+
       default:
     }
   }

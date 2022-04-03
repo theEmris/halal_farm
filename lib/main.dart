@@ -4,12 +4,10 @@ import 'package:halal_farm/router/router.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_)=>TextProvider())
-    ],
-    child: MyApp(),)
-  );
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => TextProvider())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,3 +27,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+

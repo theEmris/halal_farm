@@ -5,7 +5,6 @@ import 'package:halal_farm/core/constants/UiConstants.dart';
 import 'package:halal_farm/core/components/listOFLanguages.dart';
 import 'package:halal_farm/sizeConfig.dart';
 
-
 class LanguageChoosing extends StatelessWidget {
   const LanguageChoosing({Key? key}) : super(key: key);
 
@@ -40,7 +39,8 @@ class LanguageChoosing extends StatelessWidget {
           InkWell(
             child: UiConstants.constButtonNext("Keyingisi", context),
             onTap: () {
-              Navigator.pushNamed(context, "/asosiyPage");
+              Navigator.pushNamedAndRemoveUntil(
+                  context, "/asosiyPage", (route) => false);
             },
           )
         ],
@@ -48,48 +48,36 @@ class LanguageChoosing extends StatelessWidget {
     );
   }
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   ListView showLanList() {
     return ListView.separated(
-              padding: EdgeInsets.symmetric(vertical: 13),
-              itemBuilder: ((context, index) {
-                return Container(
-                  height: getHeight(80),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CircleAvatar(
-                        radius: getHeight(40),
-                        backgroundImage: AssetImage(ListOfFlags[index]),
-                      ),
-                      UiConstants.TextDesignForLanguageName(
-                          context, ListOfLanguages[index]),
-                      Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                );
-              }),
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: 3);
+        padding: EdgeInsets.symmetric(vertical: 13),
+        itemBuilder: ((context, index) {
+          return Container(
+            height: getHeight(80),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  radius: getHeight(40),
+                  backgroundImage: AssetImage(ListOfFlags[index]),
+                ),
+                UiConstants.TextDesignForLanguageName(
+                    context, ListOfLanguages[index]),
+                Icon(
+                  Icons.check,
+                  color: Colors.white,
+                )
+              ],
+            ),
+          );
+        }),
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: 3);
   }
 
   SizedBox showLogo() {
     return SizedBox(
-          child: SvgPicture.asset("assets/logo_black.svg"),
-        );
+      child: SvgPicture.asset("assets/logo_black.svg"),
+    );
   }
 }
